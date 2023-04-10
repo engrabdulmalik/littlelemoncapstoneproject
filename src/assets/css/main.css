@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: grid;
+  font-family: "Markazi Text", serif;
+  max-width: 1024px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+/* main section {
+    padding: 2rem;
+  } */
+/* main section h1 {
+  font-size: 2rem;
+} */
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  color: white;
+  height: 15rem;
+  /* border-radius: 10px; */
+  margin-bottom: 6rem;
+  /* background-image: url("/src/assets/images/restaurant_banner.jpeg"); */
+  background-color: #495e57;
+  /* opacity: 0.8; */
+  background-size: cover;
+}
+
+.bannerimage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+/* .banner h1 {
+  padding: 1rem;
+  animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+    color: green;
+  }
+} */
+
+.trans {
+  color: #f4ce14;
+  font-size: 2rem;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: black;
+  align-items: center;
+  place-items: center;
+}
+.card {
+  box-shadow: 0px 4px 4px 4px rgba(34, 34, 35, 0.15);
+}
+.card h1 {
+  text-align: center;
+  padding-top: 1rem;
+  color: rgb(110, 108, 108);
+}
+
+.card:hover,
+.banner:hover {
+  transform: scale(1.03);
+  transition: 0.7s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+}
+.card {
+  place-items: center;
+  align-items: center;
+  margin-right: 1rem;
+  border-radius: 10px;
+  background-color: beige;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.card p {
+  color: black;
+  text-align: justify;
+  width: 90%;
+  padding: 1rem;
+  color: rgb(110, 108, 108);
+}
