@@ -25,7 +25,7 @@ function App() {
             <Route path="/booking" element={<Book />} />
             <Route path="/order" element={<Order />} />
             <Route path="/login" element={<Login />} />
-          </Routes>
+          </Routes><i class="fas fa-calendar-alt    "></i>
 
           <Footer />
           <Alert />
