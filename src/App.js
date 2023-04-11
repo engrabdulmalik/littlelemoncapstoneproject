@@ -5,7 +5,7 @@ import Menu from "./components/Menu";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-import Book from "./components/Book";
+import Book from "./components/BookingForm";
 import Order from "./components/Order";
 import Login from "./components/Login";
 import { ChakraProvider } from "@chakra-ui/react";

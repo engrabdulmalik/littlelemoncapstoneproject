@@ -23,7 +23,6 @@ const Book = () => {
   const formik = useFormik({
     initialValues: {
       resDate: "",
-      resTime: "",
       comment: "",
     },
     onSubmit: async (values) => {
@@ -31,11 +30,6 @@ const Book = () => {
     },
     validationSchema: Yup.object({
       resDate: Yup.string().required("Please enter a date to continue"),
-      resTime: Yup.string().required("Please enter Timeslot to continue"),
-      email: Yup.string()
-        .required("Required")
-        .email("Please enter your email address"),
-
       comment: Yup.string()
         .required("Add any special request")
         .min(25, "Comment must be at least 25 characters"),
@@ -52,10 +46,10 @@ const Book = () => {
   }, [response]);
 
   return (
-    <>
+    <div className="container">
       <VStack w="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">
-          Reserve a Table
+          Book Now
         </Heading>
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
@@ -63,7 +57,9 @@ const Book = () => {
               <FormControl
                 isInvalid={formik.touched.resDate && !!formik.errors.resDate}
               >
-                <FormLabel htmlFor="resDate">Choose date</FormLabel>
+                <FormLabel htmlFor="resDate">
+                  <b>Choose date:</b>
+                </FormLabel>
                 <Input
                   id="resDate"
                   name="resDate"
@@ -79,9 +75,11 @@ const Book = () => {
               </FormControl>
 
               <FormControl
-                isInvalid={formik.touched.resTime && !!formik.errors.resTime}
+              // isInvalid={formik.touched.resTime && !!formik.errors.resTime}
               >
-                <FormLabel htmlFor="resTime">Select Time:</FormLabel>
+                <FormLabel htmlFor="resTime">
+                  <b>Select Time:</b>{" "}
+                </FormLabel>
                 <Select
                   id="resTime"
                   name="resTime"
@@ -99,9 +97,11 @@ const Book = () => {
                 </FormErrorMessage>
               </FormControl>
               <FormControl
-                isInvalid={formik.touched.resDate && !!formik.errors.resDate}
+              // isInvalid={formik.touched.resDate && !!formik.errors.resDate}
               >
-                <FormLabel htmlFor="guests">No. of Guests</FormLabel>
+                <FormLabel htmlFor="guests">
+                  <b>No. of Guests:</b>
+                </FormLabel>
                 <Input
                   id="guests"
                   name="guests"
@@ -121,7 +121,9 @@ const Book = () => {
               <FormControl
                 isInvalid={formik.touched.occasion && !!formik.errors.occasion}
               >
-                <FormLabel htmlFor="occasion">Select Occasion:</FormLabel>
+                <FormLabel htmlFor="occasion">
+                  <b>Select Occasion:</b>
+                </FormLabel>
                 <Select
                   id="occasion"
                   name="occasion"
@@ -138,7 +140,9 @@ const Book = () => {
               <FormControl
                 isInvalid={formik.touched.comment && !!formik.errors.comment}
               >
-                <FormLabel htmlFor="comment">Any Special Request</FormLabel>
+                <FormLabel htmlFor="comment">
+                  <b>Any Special Request:</b>
+                </FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"
@@ -162,7 +166,7 @@ const Book = () => {
           </form>
         </Box>
       </VStack>
-    </>
+    </div>
   );
 };
 
