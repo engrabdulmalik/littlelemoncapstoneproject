@@ -22,20 +22,20 @@ const Book = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      email: "",
-      type: "",
+      resDate: "",
+      resTime: "",
       comment: "",
     },
     onSubmit: async (values) => {
       submit("", values);
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required("Please enter a name to continue"),
+      resDate: Yup.string().required("Please enter a date to continue"),
+      resTime: Yup.string().required("Please enter Timeslot to continue"),
       email: Yup.string()
         .required("Required")
         .email("Please enter your email address"),
-      type: Yup.string(),
+
       comment: Yup.string()
         .required("Add any special request")
         .min(25, "Comment must be at least 25 characters"),
@@ -61,66 +61,80 @@ const Book = () => {
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl
-                isInvalid={
-                  formik.touched.firstName && !!formik.errors.firstName
-                }
+                isInvalid={formik.touched.resDate && !!formik.errors.resDate}
               >
-                <FormLabel htmlFor="firstName">Name</FormLabel>
+                <FormLabel htmlFor="resDate">Choose date</FormLabel>
                 <Input
-                  id="firstName"
-                  name="firstName"
+                  id="resDate"
+                  name="resDate"
+                  type="date"
                   onChange={formik.handleChange}
-                  value={formik.values.firstName}
-                  {...formik.getFieldProps("firstName")}
-                  isInvalid={
-                    formik.touched.firstName && !!formik.errors.firstName
-                  }
+                  value={formik.values.resDate}
+                  {...formik.getFieldProps("resDate")}
+                  isInvalid={formik.touched.resDate && !!formik.errors.resDate}
                 />
                 <FormErrorMessage>
-                  {formik.touched.firstName && formik.errors.firstName}
+                  {formik.touched.resDate && formik.errors.resDate}
+                </FormErrorMessage>
+              </FormControl>
+
+              <FormControl
+                isInvalid={formik.touched.resTime && !!formik.errors.resTime}
+              >
+                <FormLabel htmlFor="resTime">Select Time:</FormLabel>
+                <Select
+                  id="resTime"
+                  name="resTime"
+                  {...formik.getFieldProps("resTime")}
+                >
+                  <option>17:00</option>
+                  <option>18:00</option>
+                  <option>19:00</option>
+                  <option>20:00</option>
+                  <option>21:00</option>
+                  <option>22:00</option>
+                </Select>
+                <FormErrorMessage>
+                  {formik.touched.resTime && formik.errors.resTime}
                 </FormErrorMessage>
               </FormControl>
               <FormControl
-                isInvalid={formik.touched.email && !!formik.errors.email}
+                isInvalid={formik.touched.resDate && !!formik.errors.resDate}
               >
-                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormLabel htmlFor="guests">No. of Guests</FormLabel>
                 <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  {...formik.getFieldProps("email")}
-                  isInvalid={formik.touched.email && !!formik.errors.email}
+                  id="guests"
+                  name="guests"
+                  type="number"
+                  placeholder="1"
+                  min="1"
+                  max="10"
+                  onChange={formik.handleChange}
+                  value={formik.values.guests}
+                  {...formik.getFieldProps("guests")}
+                  isInvalid={formik.touched.guests && !!formik.errors.guests}
                 />
                 <FormErrorMessage>
-                  {formik.touched.email && formik.errors.email}
+                  {formik.touched.guests && formik.errors.guests}
                 </FormErrorMessage>
               </FormControl>
               <FormControl
-                isInvalid={formik.touched.type && !!formik.errors.type}
+                isInvalid={formik.touched.occasion && !!formik.errors.occasion}
               >
-                <FormLabel htmlFor="type">Select Dishes:</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Salad</option>
-                  <option value="openSource">Pasta</option>
-                  <option value="other">Drinks</option>
+                <FormLabel htmlFor="occasion">Select Occasion:</FormLabel>
+                <Select
+                  id="occasion"
+                  name="occasion"
+                  {...formik.getFieldProps("occasion")}
+                >
+                  <option>Birthday</option>
+                  <option>Anniversary</option>
                 </Select>
                 <FormErrorMessage>
-                  {formik.touched.type && formik.errors.type}
+                  {formik.touched.occasion && formik.errors.occasion}
                 </FormErrorMessage>
               </FormControl>
-              <FormControl
-                isInvalid={formik.touched.type && !!formik.errors.type}
-              >
-                <FormLabel htmlFor="type">Total No. of Diners</FormLabel>
-                <Select id="type" name="type" {...formik.getFieldProps("type")}>
-                  <option value="hireMe">Salad</option>
-                  <option value="openSource">Pasta</option>
-                  <option value="other">Drinks</option>
-                </Select>
-                <FormErrorMessage>
-                  {formik.touched.type && formik.errors.type}
-                </FormErrorMessage>
-              </FormControl>
+
               <FormControl
                 isInvalid={formik.touched.comment && !!formik.errors.comment}
               >
@@ -142,7 +156,7 @@ const Book = () => {
                 width="full"
                 isLoading={isLoading}
               >
-                {isLoading ? "Loading..." : "Add to cart"}
+                {isLoading ? "Loading..." : "Make Your Reservation"}
               </Button>
             </VStack>
           </form>
