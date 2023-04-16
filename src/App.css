@@ -136,9 +136,10 @@ Link:link {
 }
 
 .hero-image > img {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 20rem;
   object-fit: cover;
+  border-radius: 2rem;
 }
 
 /* SPECIALS */
@@ -168,13 +169,17 @@ Link:link {
 
 .menu-card {
   background-color: #edefee;
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
+  margin-top: 1rem;
+  border-radius: 2rem;
 }
 
 .menu-card > img {
   height: 25vh;
   width: 100%;
   object-fit: cover;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 
 .menu-card-content {
@@ -193,7 +198,7 @@ Link:link {
 
 .special-button {
   background-color: #f4ce14;
-  border-radius: 0.2rem;
+  border-radius: 2rem;
   font-size: 1.5rem;
   padding: 0.5rem;
 }
@@ -236,6 +241,8 @@ Link:link {
 .testimonial-card {
   background-color: #edefee;
   padding: 1rem 1rem 0 1rem;
+  border-radius: 2rem;
+  height: 15rem;
 }
 
 .testimonial-card > img {

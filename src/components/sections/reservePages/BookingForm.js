@@ -75,7 +75,7 @@ export default function ReservationForm(props) {
 
   return (
     <>
-      <h1>BOOK NOW</h1>
+      <h1 style={{ textAlign: "center" }}>Reserve a Table</h1>
       <section id="res_main">
         <article>
           <form

@@ -1,5 +1,6 @@
 import Carousel from './TestimonialCarousel'
 import TestimonialCard from './CardInfo/TestimonialCard';
+import "../../../App.css"
 export default function Testimonials() {
     return (
         <section className="testimonials">
