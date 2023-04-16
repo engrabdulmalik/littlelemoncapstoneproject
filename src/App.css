@@ -446,11 +446,13 @@ footer > menu {
   }
 
   .specials-cards {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
   }
 
   .specials-carousel {
-    display: block;
+    display: none;
   }
 
   .menu-card {
@@ -480,13 +482,15 @@ footer > menu {
   }
 
   .testimonials-carousel {
-    display: block;
-    background-color: #edefee;
-    padding-bottom: 0;
+    display: none;
+    /* background-color: #edefee;
+    padding-bottom: 0; */
   }
 
   .testimonials-cards {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
   }
 
   .testimonial-card > p {
@@ -610,6 +614,14 @@ footer > menu {
   .redirect-button {
     padding: 1vh 2rem 1vh 2rem;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 432px) {
+  .testimonials-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
   }
 }
 

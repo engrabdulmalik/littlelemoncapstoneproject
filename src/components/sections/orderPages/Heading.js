@@ -1,4 +1,5 @@
 import HeroImage from "../../../assets/food/food4.webp";
+import "../../../App.css"
 export default function Heading() {
   return (
     <header className="reserve-table">
@@ -7,6 +8,7 @@ export default function Heading() {
         src={HeroImage}
         alt="Little Lemon Ingredients"
       ></img>
+      <br></br>
       <div className="reserve-header-text">
         <h1>Order Online</h1>
       </div>
