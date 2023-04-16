@@ -57,9 +57,10 @@ Link:link {
 .action-button {
   background-color: #f4ce14;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 0.2rem;
+  border-radius: 2rem;
   font-family: "Karla";
   font-size: 2rem;
+  text-align: center;
 }
 
 .action-button:hover {
