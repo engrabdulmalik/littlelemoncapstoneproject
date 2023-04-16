@@ -14,9 +14,7 @@ export default function ReservationForm(props) {
   const [isDateFocus, setIsDateFocus] = useState(true);
   const [guestNumber, setguestNumber] = useState("");
   const [isGuest, setisGuest] = useState("false");
-  const [finalTime, setFinalTime] = useState(
-    props.availableTimes.map((times) => <option>{times}</option>)
-  );
+  const [finalTime, setFinalTime] = useState();
 
   function handleDateChange(e) {
     setDate(e.target.value);
