@@ -4,7 +4,8 @@ import About from "./pages/About";
 import Reservation from "./pages/BookingPage";
 import Order from "./pages/Order";
 import Login from "./pages/Login";
-import Confirmation from "./pages/Confirmation";
+
+import Confirmation from "../components/Confirmation_msg";
 
 export default function Routing() {
   return (
@@ -18,7 +19,7 @@ export default function Routing() {
       <Route path="/order" element={<Order />} />
       <Route path="/login" element={<Login />} />
 
-      <Route path="/confirmation" element={<Confirmation />} />
+      <Route path="/table/confirm" element={<Confirmation />} />
     </Routes>
   );
 }

@@ -1,17 +1,33 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
 import BookingForm from "./components/sections/reservePages/BookingForm";
 
-test("Renders the BookingForm", () => {
-  render(<BookingForm />);
-  const submitBtn = screen.getByText("Book Table");
-  expect(submitBtn).toBeInTheDocument();
-});
+describe('BookingForm', () => {
+  test('submits the form with valid data', () => {
+    const onSubmit = jest.fn();
+    const { getByLabelText, getByRole } = render(<BookingForm onSubmit={onSubmit} />);
+    const NameInput = getByLabelText('Name:');
+    const emailInput = getByLabelText('Email:');
+    const submitButton = getByRole('button', { name: 'Submit' });
 
-test("Updates the time correctly", () => {
-  render(<BookingForm />);
-  const dateSelector = screen.getByLabelText(/Date:/);
-  fireEvent.change(dateSelector, { target: { value: "2023-02-05" } });
-  const timeDropDown = screen.getByLabelText(/Choose time:/);
-  fireEvent.change(timeDropDown, { target: { value: "17:00" } });
-  expect(timeDropDown.value).toEqual("17:00");
+    fireEvent.change(NameInput, { target: { value: 'John' } });
+    fireEvent.change(emailInput, { target: { value: 'johndoe@example.com' } });
+    fireEvent.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledWith({
+      Name: 'John',
+      email: 'johndoe@example.com'
+    });
+  });
+
+  test('displays an error message for missing required fields', () => {
+    const onSubmit = jest.fn();
+    const { getByRole } = render(<BookingForm onSubmit={onSubmit} />);
+    const submitButton = getByRole('button', { name: 'Submit' });
+
+    fireEvent.click(submitButton);
+
+    expect(onSubmit).not.toHaveBeenCalled();
+    expect(getByRole('alert')).toHaveTextContent('Please fill out all required fields.');
+  });
 });
